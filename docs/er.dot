@@ -1,0 +1,10 @@
+digraph ER {
+  rankdir=LR; node [shape=plaintext, fontname="Helvetica", fontsize=11];
+  usuario [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="3"><tr><td bgcolor="#2f5597"><font color="white"><b>usuario</b></font></td></tr><tr><td align="left"><u>id_usuario</u> (PK)</td></tr><tr><td align="left">nome</td></tr><tr><td align="left">email (UNIQUE)</td></tr><tr><td align="left">criado_em</td></tr></table>>];
+  disciplina [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="3"><tr><td bgcolor="#2f5597"><font color="white"><b>disciplina</b></font></td></tr><tr><td align="left"><u>id_disciplina</u> (PK)</td></tr><tr><td align="left">id_usuario (FK)</td></tr><tr><td align="left">nome</td></tr><tr><td align="left">professor</td></tr><tr><td align="left">semestre</td></tr></table>>];
+  atividade [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="3"><tr><td bgcolor="#2f5597"><font color="white"><b>atividade</b></font></td></tr><tr><td align="left"><u>id_atividade</u> (PK)</td></tr><tr><td align="left">id_disciplina (FK)</td></tr><tr><td align="left">id_categoria (FK)</td></tr><tr><td align="left">titulo</td></tr><tr><td align="left">descricao</td></tr><tr><td align="left">prazo</td></tr><tr><td align="left">status</td></tr></table>>];
+  categoria [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="3"><tr><td bgcolor="#2f5597"><font color="white"><b>categoria</b></font></td></tr><tr><td align="left"><u>id_categoria</u> (PK)</td></tr><tr><td align="left">nome (UNIQUE)</td></tr></table>>];
+  usuario -> disciplina [label="1 : N", arrowhead=crow, fontname="Helvetica"];
+  disciplina -> atividade [label="1 : N", arrowhead=crow, fontname="Helvetica"];
+  categoria -> atividade [label="1 : N", arrowhead=crow, fontname="Helvetica"];
+}
